@@ -15,6 +15,8 @@ speed-measure-plugin*.json
 
 # IDEs and editors
 /.idea
+/environments/environment.prod.ts
+/environments/environment.ts
 .project
 .classpath
 .c9/
