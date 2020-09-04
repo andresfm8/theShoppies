@@ -1,0 +1,35 @@
+#search{
+    margin-top: 5em;
+}
+
+mat-icon:hover{
+    cursor: pointer;
+}
+
+.mat-form-field {
+    width: 60em !important;
+}
+
+p {
+    margin: 0 auto;
+    text-align: center;
+    width: 60%;
+}
+
+@media only screen and (max-width: 992px)  {
+    .mat-form-field {
+        width: 50em !important;
+    }   
+}
+
+@media only screen and (max-width: 768px)  {
+    .mat-form-field {
+        width: 35em !important;
+    }   
+}
+
+@media only screen and (max-width: 600px)  {
+    .mat-form-field {
+        width: 20em !important;
+    }   
+}

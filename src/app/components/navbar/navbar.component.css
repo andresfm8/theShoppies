@@ -1,0 +1,9 @@
+.navbar{
+    background:  #e1e8f0;
+    position: fixed;
+}
+.logo a{
+    margin-left: 1em;
+    text-decoration: none;
+    color: #9068be;
+}

@@ -1,0 +1,28 @@
+<!-- Check data is received -->
+<ng-template [ngIf]="movieList.length !== 0" [ngIfElse]="noSearch">
+    <h1>Results for "{{ searchCriteria }}"</h1>
+    <!-- Error with the search -->
+    <ng-template [ngIf]="movieList == null || movieList.Response === 'False'" [ngIfElse]="validSearch">
+        <p>{{ movieList.Error }}</p>
+    </ng-template>
+    <!-- Search is successful, show results -->
+    <ng-template #validSearch> 
+        <section class="movie-container">
+            <mat-card class="card" *ngFor="let movie of movieList.Search">
+                <mat-card-header>
+                    <mat-card-title>{{ movie.Title }}</mat-card-title>
+                    <mat-card-subtitle>{{ movie.Year }}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{ movie.Poster }}" alt="Photo of {{ movie.Title }}">
+                <mat-card-actions>
+                    <button mat-stroked-button color="accent" (click)="addNominee(movie)" [disabled]="isNominated(movie)">Nominate</button>
+                </mat-card-actions>
+            </mat-card>
+        </section>
+    </ng-template>
+</ng-template>
+<!-- Show while there are no searches -->
+<ng-template #noSearch>
+    <h1>You haven't searched anything yet...</h1>
+</ng-template>
+

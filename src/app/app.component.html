@@ -1,0 +1,14 @@
+<section class="container">
+        <app-navbar class="container-item navbar"></app-navbar>
+        <app-search-movie (sendResults)="setSearchResults($event)" class="container-item header"
+                            (searchCriteria)="setSearchCriteria($event)">
+        </app-search-movie>
+        <app-movie-results [movieList]="sendResults" class="container-item results"
+                            [searchCriteria]="sendSearchCriteria"
+                            (sendNominees)="setNominees($event)">
+        </app-movie-results>
+        <mat-divider [vertical]="true"></mat-divider>
+        <app-nomination-list [nomineList]="sendNominees"  class="container-item nominations"></app-nomination-list>
+</section>
+
+<router-outlet></router-outlet>

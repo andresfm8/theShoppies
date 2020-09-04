@@ -1,0 +1,29 @@
+<h1 id="nominations">Nominations</h1>
+<ng-template [ngIf]="nomineList.length" [ngIfElse]="noNominations">
+    <!-- Show current nominees -->
+    <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let nominee of nomineList">
+            <div mat-line
+            matTooltip="{{ nominee.Title }} ({{ nominee.Year }}"
+            >{{ nominee.Title }} ({{ nominee.Year }})</div>
+            <button mat-stroked-button color="warn" (click)="removeNominee(nominee)">Remove</button>
+        </mat-list-item>
+    </mat-list>
+    <button mat-stroked-button color="primary" class="action submit" (click)="submitNominees()" 
+            [disabled]="isNominated(nomineList.length)">
+            Submit      <!-- This action will only remove everything from the list in this version of the app -->
+    </button> 
+    <button mat-stroked-button color="warn" class="action clear" (click)="clearNominees()">Clear List</button>
+    <p>Select 5 movies to submit.</p>
+</ng-template>
+<!-- Show while there are no nominations -->
+<ng-template #noNominations>
+    <h3>Choose your favorite movies!</h3>
+</ng-template>
+<!-- Alert user that has reached limit of nominees -->
+<ng-template [ngIf]="nomineList.length === 5">
+    <div class="warning">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        You have reached the limit of nominated movies, remove one to add more or submit your nominations.
+    </div>
+</ng-template>

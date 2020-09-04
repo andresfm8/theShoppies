@@ -1,0 +1,12 @@
+
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" id="search">
+    <mat-form-field appearance="outline">
+        <mat-label>Search...</mat-label>
+        <input matInput type="text" placeholder="Harry Potter" formControlName="movieName">
+        <mat-icon matSuffix (click)="onSubmit(searchForm.value)">search</mat-icon>                
+    </mat-form-field>
+</form>
+<p>Find your favorite movies and nominate them! You may select up to 5 movies.</p>
+
+
+
