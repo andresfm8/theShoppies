@@ -2,6 +2,6 @@
 
 export const environment = {
   production: true,
-  moviedbApiKey: process.env.MOVIEDB_API_KEY,
+  moviedbApiKey: 'd33f97ea',
   moviedbApiURL: 'http://www.omdbapi.com/?'
 };
