@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  moviedbApiKey: 'Add your key here',
+  moviedbApiKey: `process.env.MOVIEDB_API_KEY`,
   moviedbApiURL: 'http://www.omdbapi.com/?'
 };
 
