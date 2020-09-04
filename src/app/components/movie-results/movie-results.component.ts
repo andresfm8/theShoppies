@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NominationsService } from '../../services/nominations.service';
 import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-results',
@@ -9,7 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class MovieResultsComponent implements OnInit {
 
-  constructor(private nominationService: NominationsService) { }
+  constructor(private nominationService: NominationsService,
+              private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void { this.movieList.length = 0; }
   
@@ -25,7 +27,8 @@ export class MovieResultsComponent implements OnInit {
       if(this.nominationService.nomineeExists(nominee)){
         return;
       }
-      this.nominationService.addNominee(nominee)
+      this.nominationService.addNominee(nominee);
+      this.openSnackBar();
       this.validateNominees(this.nominationService.getNominees());
     } 
   }
@@ -46,5 +49,15 @@ export class MovieResultsComponent implements OnInit {
       return true;
     }
     return false;
+  }
+  //Open alert to confirm addition of nominee
+  openSnackBar() {
+    this._snackBar.open(
+      'Added to the nomination list!', 
+      'X', {
+      duration: 2000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right'      
+    });
   }
 }
